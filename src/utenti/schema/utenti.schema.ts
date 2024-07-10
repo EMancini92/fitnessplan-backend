@@ -19,6 +19,9 @@ export class UtentiItem {
 
   @Prop()
   Tipo: string;
+
+  @Prop()
+  Data_Creazione: Date;
 }
 
 export const UtentiSchema = SchemaFactory.createForClass(UtentiItem);

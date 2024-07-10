@@ -3,4 +3,5 @@ export class UtentiDto {
   Cognome: string;
   Email: string;
   Tipo: string;
+  Data_Creazione: Date;
 }
