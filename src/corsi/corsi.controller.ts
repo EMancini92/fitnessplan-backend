@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Get } from '@nestjs/common';
+import { Body, Controller, Post, Get, Param, Delete } from '@nestjs/common';
 import { CorsiService } from './corsi.service';
 import { CorsiDto } from './dto/corsi.dto';
 import { CorsiItem } from './schemas/corsi.shcema';
@@ -15,5 +15,15 @@ export class CorsiController {
   @Get()
   async findAll(): Promise<CorsiItem[]> {
     return this.corsiService.findAll();
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string): Promise<CorsiItem> {
+    return this.corsiService.findOne(id);
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: string) {
+    return this.corsiService.delete(id);
   }
 }

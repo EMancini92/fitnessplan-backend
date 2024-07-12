@@ -18,4 +18,15 @@ export class CorsiService {
   async findAll(): Promise<CorsiItem[]> {
     return this.corsiModel.find().exec();
   }
+
+  async findOne(id: string): Promise<CorsiItem> {
+    return this.corsiModel.findOne({ _id: id }).exec();
+  }
+
+  async delete(id: string) {
+    const deletedCorso = await this.corsiModel
+      .findByIdAndDelete({ _id: id })
+      .exec();
+    return deletedCorso;
+  }
 }
